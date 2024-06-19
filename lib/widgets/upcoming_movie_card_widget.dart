@@ -1,7 +1,9 @@
+
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/common/utils.dart';
-import 'package:netflix_clone/models/movie_model.dart';
-import 'package:netflix_clone/screens/movie_detailed_screen.dart';
+
+import '../common/utils.dart';
+import '../models/movie_model.dart';
+import '../screens/movie_detailed_screen.dart';
 
 class UpcomingMovieCard extends StatelessWidget {
   final Future<MovieModel> future;

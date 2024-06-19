@@ -2,7 +2,6 @@
 
 // import 'package:flutter/material.dart';
 // import 'package:lottie/lottie.dart';
-// import 'package:netflix_clone/widgets/bottom_nav_bar.dart';
 
 // class SplashScreen extends StatefulWidget {
 //   const SplashScreen({super.key});
@@ -29,9 +28,10 @@
 
 
 
-import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:netflix_clone/widgets/bottom_nav_bar.dart';
+import 'package:flutter/material.dart';
+
+import '../widgets/bottom_nav_bar.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -140,7 +140,7 @@ class _SplashScreenState extends State<SplashScreen> {
               style: TextStyle(
                 fontSize: 25,
                 color: Colors.black
-              ), // Adjust text style here
+              ), 
               
             ),
           ),

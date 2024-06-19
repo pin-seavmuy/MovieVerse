@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/models/movie_model.dart';
-import 'package:netflix_clone/models/tv_series_model.dart';
-import 'package:netflix_clone/screens/search_screen.dart';
-import 'package:netflix_clone/services/api_services.dart';
-import 'package:netflix_clone/widgets/custom_carousel.dart';
-import 'package:netflix_clone/widgets/upcoming_movie_card_widget.dart';
+
+import '../models/movie_model.dart';
+import '../models/tv_series_model.dart';
+import '../services/api_services.dart';
+import '../widgets/custom_carousel.dart';
+import '../widgets/upcoming_movie_card_widget.dart';
+import 'search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -71,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Icon(
                 Icons.notifications,
                 size: 30,
-                color: Color.fromARGB(255, 41, 40, 40),
+                color: Color.fromARGB(255, 182, 7, 7),
               ),
             ),
           ),

@@ -1,9 +1,11 @@
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/common/utils.dart';
-import 'package:netflix_clone/models/tv_series_model.dart';
-import 'package:netflix_clone/widgets/landing_card.dart';
+
+import '../common/utils.dart';
+import '../models/tv_series_model.dart';
+import 'landing_card.dart';
 
 class CustomCarouselSlider extends StatelessWidget {
   const CustomCarouselSlider({

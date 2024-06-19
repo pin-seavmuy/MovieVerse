@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/common/utils.dart';
-import 'package:netflix_clone/models/movie_detail_model.dart';
-import 'package:netflix_clone/models/movie_recommendation_mode.dart';
-import 'package:netflix_clone/services/api_services.dart';
+
+import '../common/utils.dart';
+import '../models/movie_detail_model.dart';
+import '../models/movie_recommendation_mode.dart';
+import '../services/api_services.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final int movieId;

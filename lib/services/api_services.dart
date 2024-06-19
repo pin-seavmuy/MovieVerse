@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:netflix_clone/common/utils.dart';
 import 'package:http/http.dart' as http;
-import 'package:netflix_clone/models/movie_detail_model.dart';
-import 'package:netflix_clone/models/movie_model.dart';
-import 'package:netflix_clone/models/movie_recommendation_mode.dart';
-import 'package:netflix_clone/models/search_model.dart';
-import 'package:netflix_clone/models/tv_series_model.dart';
+import '../common/utils.dart';
+import '../models/movie_detail_model.dart';
+import '../models/movie_model.dart';
+import '../models/movie_recommendation_mode.dart';
+import '../models/search_model.dart';
+import '../models/tv_series_model.dart';
 
 const baseUrl = 'https://api.themoviedb.org/3/';
 var key = '?api_key=$apiKey';

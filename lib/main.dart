@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:netflix_clone/screens/splash_screen.dart';
+
+import 'screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.ptSans().fontFamily,
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
-            .copyWith(background: const Color.fromARGB(255, 255, 255, 255)),
+            .copyWith(background: const Color.fromARGB(255, 83, 72, 72)),
       ),
       home: const SplashScreen(),
     );
