@@ -12,7 +12,7 @@ class BottomNavBar extends StatelessWidget {
       length: 3,
       child: Scaffold(
         bottomNavigationBar: Container(
-          color: Colors.black,
+          color: const Color.fromARGB(255, 255, 255, 255),
           height: 70,
           child: const TabBar(
             tabs: [
@@ -25,12 +25,20 @@ class BottomNavBar extends StatelessWidget {
                 text: "Search",
               ),
               Tab(
+                icon: Icon(Icons.bookmark),
+                text: "Save",
+              ),
+              Tab(
                 icon: Icon(Icons.photo_library_outlined),
-                text: "New & Hot",
+                text: "News",
+              ),
+              Tab(
+                icon: Icon(Icons.settings),
+                text: "Settings",
               ),
             ],
-            unselectedLabelColor: Color(0xFF999999),
-            labelColor: Colors.white,
+            unselectedLabelColor: Color.fromARGB(255, 41, 40, 40),
+            labelColor: Color.fromARGB(255, 228, 6, 99),
             indicatorColor: Colors.transparent,
           ),
         ),

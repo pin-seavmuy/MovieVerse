@@ -32,15 +32,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         title: Image.asset(
-          'assets/logo.png',
+          'assets/movielogo.png',
           height: 50,
           width: 120,
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 20.0),
+            padding: const EdgeInsets.only(right: 10.0),
             child: InkWell(
               onTap: () {
                 Navigator.push(
@@ -53,21 +53,29 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Icon(
                 Icons.search,
                 size: 30,
-                color: Colors.white,
+                color: Color.fromARGB(255, 41, 40, 40),
               ),
             ),
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(6),
+          Padding(
+            padding: const EdgeInsets.only(right: 0.0),
             child: InkWell(
-              onTap: () {},
-              child: Container(
-                color: Colors.blue,
-                height: 27,
-                width: 27,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SearchScreen(),
+                  ),
+                );
+              },
+              child: const Icon(
+                Icons.notifications,
+                size: 30,
+                color: Color.fromARGB(255, 41, 40, 40),
               ),
             ),
           ),
+          
           const SizedBox(
             width: 20,
           ),

@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.ptSans().fontFamily,
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
-            .copyWith(background: Colors.black),
+            .copyWith(background: const Color.fromARGB(255, 255, 255, 255)),
       ),
       home: const SplashScreen(),
     );
