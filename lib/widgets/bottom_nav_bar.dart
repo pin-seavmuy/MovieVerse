@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import '../screens/homescreen.dart';
 import '../screens/news_and_hot.dart';
 import '../screens/search_screen.dart';
+import '../screens/setting_screen.dart';
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         bottomNavigationBar: Container(
           color: const Color.fromARGB(255, 255, 255, 255),
@@ -21,12 +22,8 @@ class BottomNavBar extends StatelessWidget {
                 text: "Home",
               ),
               Tab(
-                icon: Icon(Icons.search),
-                text: "Search",
-              ),
-              Tab(
                 icon: Icon(Icons.bookmark),
-                text: "Save",
+                text: "WatchList",
               ),
               Tab(
                 icon: Icon(Icons.photo_library_outlined),
@@ -47,6 +44,7 @@ class BottomNavBar extends StatelessWidget {
             HomeScreen(),
             SearchScreen(),
             MoreScreen(),
+            SettingScreen(),
           ],
         ),
       ),

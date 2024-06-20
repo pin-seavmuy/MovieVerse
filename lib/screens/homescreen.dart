@@ -34,15 +34,16 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        title: Image.asset(
-          'assets/movielogo.png',
-          height: 50,
-          width: 120,
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: InkWell(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset(
+              'assets/movielogo.png',
+              height: 50,
+              width: 120,
+            ),
+            Spacer(),
+            InkWell(
               onTap: () {
                 Navigator.push(
                   context,
@@ -57,30 +58,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Color.fromARGB(255, 41, 40, 40),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 0.0),
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SearchScreen(),
-                  ),
-                );
-              },
-              child: const Icon(
-                Icons.notifications,
-                size: 30,
-                color: Color.fromARGB(255, 182, 7, 7),
-              ),
-            ),
-          ),
-          
-          const SizedBox(
-            width: 20,
-          ),
-        ],
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -101,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 220,
               child: UpcomingMovieCard(
                 future: nowPlaying,
-                headlineText: 'Now Playing',
+                headlineText: 'Last Update',
               ),
             ),
             const SizedBox(
@@ -111,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 220,
               child: UpcomingMovieCard(
                 future: upcomingFuture,
-                headlineText: 'Upcoming Movies',
+                headlineText: 'Hollywood',
               ),
             ),
           ],
