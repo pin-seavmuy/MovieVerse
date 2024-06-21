@@ -9,7 +9,7 @@ import '../services/api_services.dart';
 import 'movie_detailed_screen.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({super.key});
+  const SearchScreen({Key? key}) : super(key: key);
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -47,6 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
                 height: 10,
@@ -62,7 +63,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   Icons.cancel,
                   color: Colors.grey,
                 ),
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.black), // Search text color
                 backgroundColor: Colors.grey.withOpacity(0.3),
                 onChanged: (value) {
                   if (value.isEmpty) {
@@ -78,62 +79,72 @@ class _SearchScreenState extends State<SearchScreen> {
                         if (snapshot.hasData) {
                           var data = snapshot.data?.results;
                           return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const SizedBox(
-                                  height: 20,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              const Text(
+                                "Top Searches",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black, // Text color
                                 ),
-                                const Text(
-                                  "Top Searches",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                ListView.builder(
-                                  shrinkWrap: true,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  // padding: const EdgeInsets.all(3),
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: data!.length,
-                                  itemBuilder: (context, index) {
-                                    return Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: InkWell(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  MovieDetailScreen(
-                                                movieId: data[index].id,
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                // padding: const EdgeInsets.all(3),
+                                scrollDirection: Axis.vertical,
+                                itemCount: data!.length,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                MovieDetailScreen(
+                                              movieId: data[index].id,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: Container(
+                                        height: 120,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Image.network(
+                                              '$imageUrl${data[index].posterPath}',
+                                              fit: BoxFit.fitHeight,
+                                            ),
+                                            const SizedBox(
+                                              width: 20,
+                                            ),
+                                            Text(
+                                              data[index].title,
+                                              style: const TextStyle(
+                                                color: Colors.black, // Text color
                                               ),
                                             ),
-                                          );
-                                        },
-                                        child: Container(
-                                          height: 120,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          child: Row(
-                                            children: [
-                                              Image.network(
-                                                '$imageUrl${data[index].posterPath}',
-                                                fit: BoxFit.fitHeight,
-                                              ),
-                                              const SizedBox(
-                                                width: 20,
-                                              ),
-                                              Text(data[index].title)
-                                            ],
-                                          ),
+                                          ],
                                         ),
                                       ),
-                                    );
-                                  },
-                                )
-                              ]);
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          );
                         } else {
                           return const Center(
                             child: CircularProgressIndicator(),
@@ -156,7 +167,8 @@ class _SearchScreenState extends State<SearchScreen> {
                             childAspectRatio: 1.2 / 2,
                           ),
                           itemBuilder: (context, index) {
-                            return searchedMovie!.results[index].backdropPath ==
+                            return searchedMovie!.results[index]
+                                        .backdropPath ==
                                     null
                                 ? Column(
                                     children: [
@@ -169,8 +181,9 @@ class _SearchScreenState extends State<SearchScreen> {
                                         maxLines: 2,
                                         style: const TextStyle(
                                           fontSize: 14,
+                                          color: Colors.black, // Text color
                                         ),
-                                      )
+                                      ),
                                     ],
                                   )
                                 : Column(
@@ -182,8 +195,9 @@ class _SearchScreenState extends State<SearchScreen> {
                                             MaterialPageRoute(
                                               builder: (context) =>
                                                   MovieDetailScreen(
-                                                      movieId: searchedMovie!
-                                                          .results[index].id),
+                                                movieId: searchedMovie!
+                                                    .results[index].id,
+                                              ),
                                             ),
                                           );
                                         },
@@ -198,12 +212,13 @@ class _SearchScreenState extends State<SearchScreen> {
                                         maxLines: 2,
                                         style: const TextStyle(
                                           fontSize: 14,
+                                          color: Colors.black, // Text color
                                         ),
                                       ),
                                     ],
                                   );
                           },
-                        )
+                        ),
             ],
           ),
         ),
