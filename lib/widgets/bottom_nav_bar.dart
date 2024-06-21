@@ -43,7 +43,7 @@ class BottomNavBar extends StatelessWidget {
           children: [
             HomeScreen(),
             SearchScreen(),
-            MoreScreen(),
+            UpcomingScreen(),
             SettingScreen(),
           ],
         ),

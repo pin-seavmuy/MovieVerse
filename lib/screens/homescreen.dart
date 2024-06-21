@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            //  padding: EdgeInsets.only(top: 0, left: 10, right: 10),
             Image.asset(
               'assets/movielogo.png',
               height: 50,
