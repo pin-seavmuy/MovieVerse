@@ -30,8 +30,9 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import '../widgets/loginScreen.dart';
 
-import '../widgets/bottom_nav_bar.dart';
+// import '../widgets/bottom_nav_bar.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -127,7 +128,7 @@ class _SplashScreenState extends State<SplashScreen> {
             onPressed: () {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) => const BottomNavBar(),
+                  builder: (context) => const LoginScreen(),
                 ),
               );
             },
