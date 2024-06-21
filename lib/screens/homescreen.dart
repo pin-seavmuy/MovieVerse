@@ -5,7 +5,7 @@ import '../models/tv_series_model.dart';
 import '../services/api_services.dart';
 import '../widgets/custom_carousel.dart';
 import '../widgets/upcoming_movie_card_widget.dart';
-import 'search_screen.dart';
+import '../screens/watchListScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SearchScreen(),
+                    builder: (context) => const WatchListScreen(),
                   ),
                 );
               },
