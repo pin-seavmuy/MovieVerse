@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+// import 'package:netflix_clone/widgets/bottom_nav_bar.dart';
+import '../widgets/loginScreen.dart';
 import '../widgets/bottom_nav_bar.dart';
-// import 'register.dart';
-// import 'register_screen.dart';
-import '../widgets/register.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -43,19 +43,19 @@ class _LoginScreenState extends State<LoginScreen> {
             fit: BoxFit.cover,
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 50, left: 15, right: 15, bottom: 15),
+             padding: EdgeInsets.only(top: 50, left: 15, right: 15, bottom: 15),
             child: Container(
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 229, 223, 223).withOpacity(0.5),
                 borderRadius: BorderRadius.circular(30.0),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 40, left: 15, right: 15),
+                padding: EdgeInsets.only(top: 40, left: 15, right: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text(
-                      'LOGIN',
+                      'SINGUP',
                       style: TextStyle(
                         fontSize: 38,
                         fontWeight: FontWeight.w900,
@@ -169,7 +169,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(content: Text('Logging in...')),
                                   );
-                                  // Navigate to your main application screen
                                 } else {
                                   setState(() {
                                     _emailColor = Colors.red;
@@ -273,10 +272,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           // "Don't have an account?" Text
                           GestureDetector(
-                            onTap: () {
+                             onTap: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => RegisterScreen()),
+                                MaterialPageRoute(builder: (context) => LoginScreen()),
                               );
                             },
                             child: Row(
@@ -292,7 +291,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 const SizedBox(width: 15), // Add spacing between the texts
                                 Text(
-                                  'Sign up',
+                                  'Login',
                                   style: TextStyle(
                                     color: const Color.fromARGB(255, 228, 6, 99),
                                     fontSize: 16,
@@ -304,7 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 35), 
                           GestureDetector(
-                             onTap: () {
+                            onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => BottomNavBar()),
