@@ -39,14 +39,14 @@ class _LoginScreenState extends State<LoginScreen> {
             fit: BoxFit.cover,
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+             padding: EdgeInsets.only(top: 50, left: 15, right: 15, bottom: 15),
             child: Container(
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 229, 223, 223).withOpacity(0.5),
                 borderRadius: BorderRadius.circular(30.0),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: EdgeInsets.only(top: 40, left: 15, right: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             suffixIcon: IconButton(
                               icon: Icon(
                                 _passwordVisible ? Icons.visibility : Icons.visibility_off,
-                                size: 20, 
+                                size: 20,
                                 color: _passwordLabelColor,
                               ),
                               onPressed: () {
@@ -179,7 +179,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30),
                                 ),
-                                shadowColor: _emailError || _passwordError ? Colors.transparent : Colors.black.withOpacity(0.2),
+                                shadowColor:
+                                    _emailError || _passwordError ? Colors.transparent : Colors.black.withOpacity(0.2),
                               ),
                               child: const Text(
                                 'Login',
@@ -212,18 +213,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 25), // Additional spacing before social login buttons
 
-                          // New Box for Facebook Icon
-                       
+                          // Social Login Icons Row
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                width: 45,
+                                width: 50,
                                 height: 45,
-                                margin: EdgeInsets.only(right: 10),
+                                margin: EdgeInsets.only(right: 30),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: const Color.fromARGB(255, 74, 70, 70), width: 1),
+                                  borderRadius: BorderRadius.circular(7),
+                                  border: Border.all(color: const Color.fromARGB(255, 95, 93, 93), width: 1),
                                   color: Colors.transparent,
                                 ),
                                 child: Icon(
@@ -233,26 +233,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                               Container(
-                                width: 45,
+                                width: 50,
                                 height: 45,
-                                margin: EdgeInsets.only(right: 10),
+                                margin: EdgeInsets.only(right: 30),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: const Color.fromARGB(255, 74, 70, 70), width: 1),
+                                  borderRadius: BorderRadius.circular(7),
+                                  border: Border.all(color: const Color.fromARGB(255, 95, 93, 93), width: 1),
                                   color: Colors.transparent,
                                 ),
                                 child: Icon(
-                                  Icons.g_translate,
+                                  Icons.laptop_chromebook_sharp,
                                   color: Colors.blue,
                                   size: 30,
                                 ),
                               ),
                               Container(
-                                width: 45,
+                                width: 50,
                                 height: 45,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(color: const Color.fromARGB(255, 74, 70, 70), width: 1),
+                                  borderRadius: BorderRadius.circular(7),
+                                  border: Border.all(color: const Color.fromARGB(255, 95, 93, 93), width: 1),
                                   color: Colors.transparent,
                                 ),
                                 child: Icon(
@@ -262,7 +262,58 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                             ],
-                          )
+                          ),
+
+                          const SizedBox(height: 20), // Additional spacing before "Don't have an account?" text
+
+                          // "Don't have an account?" Text
+                          GestureDetector(
+                            onTap: () {
+                              // Navigate to the registration screen or perform other actions
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Don't have an account?",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    // decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                                const SizedBox(width: 15), // Add spacing between the texts
+                                Text(
+                                  'Sign up',
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(255, 228, 6, 99),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 35), 
+                          GestureDetector(
+                            onTap: () {
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "SKIP FOR NOW",
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(255, 228, 6, 99),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          
+
                         ],
                       ),
                     ),
