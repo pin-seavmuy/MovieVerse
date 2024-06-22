@@ -24,24 +24,25 @@ class UpcomingMovieCard extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                headlineText,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black, // Set text color to black
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 30, bottom: 10),
+                child: Text(
+                  headlineText,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black, // Set text color to black
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
               ),
               Expanded(
                 child: ListView.builder(
+                  padding: const EdgeInsets.only(left: 5),
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: data!.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.all(5.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: InkWell(
                         onTap: () {
                           Navigator.push(
@@ -53,10 +54,8 @@ class UpcomingMovieCard extends StatelessWidget {
                             ),
                           );
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
                           child: Image.network(
                             '$imageUrl${data[index].posterPath}',
                             fit: BoxFit.fitHeight,

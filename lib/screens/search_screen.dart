@@ -47,7 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(10.0), // 10px padding around search field
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -65,7 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     Icons.cancel,
                     color: Colors.grey,
                   ),
-                  style: const TextStyle(color: Colors.black), // Search text color
+                  style: const TextStyle(color: Colors.black),
                   backgroundColor: Colors.grey.withOpacity(0.3),
                   onChanged: (value) {
                     if (value.isEmpty) {
@@ -90,7 +90,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                   "Top Searches",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black, // Text color
+                                    color: Colors.black,
                                   ),
                                 ),
                                 const SizedBox(
@@ -99,8 +99,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                 ListView.builder(
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
-                                  // padding: const EdgeInsets.all(3),
-                                  scrollDirection: Axis.vertical,
                                   itemCount: data!.length,
                                   itemBuilder: (context, index) {
                                     return Padding(
@@ -131,10 +129,13 @@ class _SearchScreenState extends State<SearchScreen> {
                                               const SizedBox(
                                                 width: 20,
                                               ),
-                                              Text(
-                                                data[index].title,
-                                                style: const TextStyle(
-                                                  color: Colors.black, // Text color
+                                              Expanded(
+                                                child: Text(
+                                                  data[index].title,
+                                                  overflow: TextOverflow.ellipsis,
+                                                  style: const TextStyle(
+                                                    color: Colors.black,
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -173,15 +174,16 @@ class _SearchScreenState extends State<SearchScreen> {
                                   ? Column(
                                       children: [
                                         Image.asset(
-                                          "assets/netflix.png",
+                                          "assets/movielogo.png",
                                           height: 170,
                                         ),
                                         Text(
                                           searchedMovie!.results[index].title,
                                           maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(
                                             fontSize: 14,
-                                            color: Colors.black, // Text color
+                                            color: Colors.black,
                                           ),
                                         ),
                                       ],
@@ -210,9 +212,10 @@ class _SearchScreenState extends State<SearchScreen> {
                                         Text(
                                           searchedMovie!.results[index].title,
                                           maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(
                                             fontSize: 14,
-                                            color: Colors.black, // Text color
+                                            color: Colors.black,
                                           ),
                                         ),
                                       ],

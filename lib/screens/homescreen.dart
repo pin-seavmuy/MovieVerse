@@ -8,7 +8,7 @@ import '../widgets/upcoming_movie_card_widget.dart';
 import 'search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -33,30 +33,33 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false, // Remove the back arrow button
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            //  padding: EdgeInsets.only(top: 0, left: 10, right: 10),
-            Image.asset(
-              'assets/movielogo.png',
-              height: 50,
-              width: 120,
+            Container(
+              padding: const EdgeInsets.only( right: 235),
+              child: Image.asset(
+                'assets/movielogo.png',
+                height: 50,
+                width: 120,
+              ),
             ),
-            Spacer(),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SearchScreen(),
-                  ),
-                );
-              },
-              child: const Icon(
-                Icons.search,
-                size: 30,
-                color: Color.fromARGB(255, 41, 40, 40),
+            Expanded(
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchScreen(),
+                    ),
+                  );
+                },
+                child: const Icon(
+                  Icons.search,
+                  size: 30,
+                  color: Color.fromARGB(255, 41, 40, 40),
+                ),
               ),
             ),
           ],
@@ -74,9 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return const SizedBox();
               },
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             SizedBox(
               height: 220,
               child: UpcomingMovieCard(
@@ -84,9 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 headlineText: 'Last Update',
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             SizedBox(
               height: 220,
               child: UpcomingMovieCard(

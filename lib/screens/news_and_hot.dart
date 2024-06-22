@@ -17,7 +17,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 0, left: 10, right: 10),
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               child: Row(
                 children: [
                   TextButton(
@@ -48,7 +48,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 30),
             Padding(
               padding: EdgeInsets.only(left: 10, right: 20),
               child: Text(
@@ -114,7 +114,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                   children: [
                     SizedBox(width: 10),
                     Image.asset(
-                      'assets/samsik.jpg',
+                      'assets/hierarchy.jpg',
                       height: 200,
                       width: 280,
                       fit: BoxFit.cover,
@@ -128,7 +128,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                     ),
                     SizedBox(width: 10),
                     Image.asset(
-                      'assets/hierarchy.jpg',
+                      'assets/samsik.jpg',
                       height: 200,
                       width: 280,
                       fit: BoxFit.cover,

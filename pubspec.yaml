@@ -18,6 +18,7 @@ dependencies:
   http: ^1.2.0
   cached_network_image: ^3.3.1
   carousel_slider: ^4.2.1
+  provider: ^5.0.0 
 
   
 

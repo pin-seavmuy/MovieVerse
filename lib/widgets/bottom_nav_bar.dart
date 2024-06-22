@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../screens/homescreen.dart';
 import '../screens/news_and_hot.dart';
-import '../screens/search_screen.dart';
+// import '../screens/search_screen.dart';
 import '../screens/setting_screen.dart';
+import '../screens/watchList_screen.dart';
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
 
@@ -42,7 +43,8 @@ class BottomNavBar extends StatelessWidget {
         body: const TabBarView(
           children: [
             HomeScreen(),
-            SearchScreen(),
+            // SearchScreen(),
+            WatchListScreen(),
             UpcomingScreen(),
             SettingScreen(),
           ],

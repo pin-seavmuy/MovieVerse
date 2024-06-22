@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             fontSize: 24,
           ),
           bodyMedium: TextStyle(
-            color: Colors.white,
+            color: Color.fromARGB(255, 255, 255, 255),
             fontSize: 20,
           ),
         ),

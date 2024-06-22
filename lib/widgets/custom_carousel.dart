@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -7,12 +6,20 @@ import '../common/utils.dart';
 import '../models/tv_series_model.dart';
 import 'landing_card.dart';
 
-class CustomCarouselSlider extends StatelessWidget {
+class CustomCarouselSlider extends StatefulWidget {
   const CustomCarouselSlider({
-    super.key,
+    Key? key,
     required this.data,
-  });
+  }) : super(key: key);
+
   final TvSeriesModel data;
+
+  @override
+  _CustomCarouselSliderState createState() => _CustomCarouselSliderState();
+}
+
+class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
+  final CarouselController _carouselController = CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,7 @@ class CustomCarouselSlider extends StatelessWidget {
     var carouselOptions = CarouselOptions(
       height: (size.height * 0.33 < 300) ? 300 : size.height * 0.33,
       aspectRatio: 16 / 9,
-      viewportFraction: 0.9,
+      viewportFraction: 1.0, // Full width for each item
       initialPage: 0,
       enableInfiniteScroll: true,
       reverse: false,
@@ -31,18 +38,24 @@ class CustomCarouselSlider extends StatelessWidget {
       enlargeCenterPage: true,
       scrollDirection: Axis.horizontal,
     );
+
     return SizedBox(
       width: size.width,
       height: (size.height * 0.33 < 300) ? 300 : size.height * 0.33,
       child: CarouselSlider.builder(
-        itemCount: data.results.length,
+        carouselController: _carouselController,
+        itemCount: widget.data.results.length,
         itemBuilder: (BuildContext context, int index, int realIndex) {
-          var url = data.results[index].backdropPath.toString();
+          var url = widget.data.results[index].backdropPath.toString();
           return GestureDetector(
             onTap: () {},
-            child: LandingCard(
-              image: CachedNetworkImageProvider("$imageUrl$url"),
-              name: data.results[index].name.toString(),
+            child: CachedNetworkImage(
+              imageUrl: "$imageUrl$url",
+              fit: BoxFit.cover,
+              placeholder: (context, url) => Center(
+                child: CircularProgressIndicator(),
+              ),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           );
         },
